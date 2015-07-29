@@ -1,12 +1,15 @@
 'use strict';
 
-/* global THREE */
+/* global THREE, THREEx */
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  45, window.innerWidth / window.innerHeight, 0.1, 10);
 
 THREE.OrbitControls(camera);
+THREEx.FullScreen.bindKey({
+  dblclick: true,
+});
 
 const ambientLight = new THREE.AmbientLight(0xbbbbbb);
 scene.add(ambientLight);
@@ -18,6 +21,8 @@ scene.add(directionalLight);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+THREEx.WindowResize(renderer, camera);
 
 const wall = new THREE.MeshPhongMaterial({
   map: THREE.ImageUtils.loadTexture('assets/wall.jpg'),
@@ -80,7 +85,7 @@ const building2 = new THREE.Mesh(geometry2, meshFaceMaterial);
 const building3 = new THREE.Mesh(geometry3, meshFaceMaterial);
 const building4 = new THREE.Mesh(geometry4, meshFaceMaterial);
 
-building1.position.set(0, -0.55, 3.5);
+building1.position.set(0, -0.60, 3.5);
 building1.rotateZ(Math.PI / 2);
 
 building2.position.set(-2, 2, 1);
@@ -96,7 +101,6 @@ scene.add(building3);
 scene.add(building4);
 
 camera.position.set(0, 0, 8);
-camera.rotateX(Math.PI / 20);
 
 function render() {
   requestAnimationFrame(render);
