@@ -6,7 +6,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   45, window.innerWidth / window.innerHeight, 0.1, 10);
 
-THREE.OrbitControls(camera);
+const controls = new THREE.OrbitControls(camera);
 THREEx.FullScreen.bindKey({
   dblclick: true,
 });
@@ -105,6 +105,7 @@ camera.position.set(0, 0, 8);
 function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
+  controls.update();
 }
 
 render();
