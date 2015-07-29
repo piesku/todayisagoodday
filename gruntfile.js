@@ -35,8 +35,8 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         src: [
-          'src/vendor/three.min.js',
-          'src/vendor/three-orbit-controls.js'
+          'src/vendor/three.js',
+          'src/vendor/three-orbit-controls.js',
         ],
         dest: 'play/js/vendor.js'
       }
