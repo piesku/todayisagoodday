@@ -7,9 +7,8 @@ const camera = new THREE.PerspectiveCamera(
   45, window.innerWidth / window.innerHeight, 0.1, 10);
 
 const controls = new THREE.OrbitControls(camera);
-THREEx.FullScreen.bindKey({
-  dblclick: true,
-});
+
+const orientation = new THREEx.DeviceOrientationState();
 
 const ambientLight = new THREE.AmbientLight(0xbbbbbb);
 scene.add(ambientLight);
@@ -23,6 +22,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 THREEx.WindowResize(renderer, camera);
+THREEx.FullScreen.bindKey({
+  dblclick: true,
+});
 
 const wall = new THREE.MeshPhongMaterial({
   map: THREE.ImageUtils.loadTexture('assets/wall.jpg'),
@@ -106,6 +108,7 @@ function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
   controls.update();
+  //console.log(orientation.angleX());
 }
 
 render();
