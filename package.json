@@ -2,7 +2,7 @@
   "name": "todayisagoodday",
   "version": "1.0.0-pre",
   "description": "Today is a good day",
-  "main": "play/index.html",
+  "main": "public/play/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -16,7 +16,7 @@ module.exports = function (grunt) {
       server: {
         options: {
           port: 8080,
-          base: './play'
+          base: './public/play'
         }
       }
     },
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
     browserify: {
       dist: {
         files: {
-          'play/js/app.js': 'src/app/main.js',
+          'public/play/js/app.js': 'src/app/main.js',
         },
         options: {
           transform: [['babelify']]
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
           'src/vendor/three-orbit-controls.js',
           'src/vendor/threex-*.js'
         ],
-        dest: 'play/js/vendor.js'
+        dest: 'public/play/js/vendor.js'
       }
     },
 
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         updateConfigs: [],
         commit: true,
         commitMessage: 'Release v%VERSION%',
-        commitFiles: ['package.json', 'play'],
+        commitFiles: ['package.json', 'public/play/js'],
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
