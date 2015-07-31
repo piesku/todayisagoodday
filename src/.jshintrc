@@ -28,7 +28,8 @@
   "maxlen": 80,
 
   "globals": {
-    "Phaser": false
+    "THREE": false,
+    "THREEx": false
   }
 
 }

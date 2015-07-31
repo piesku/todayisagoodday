@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       dist: {
         src: [
           'src/vendor/three.js',
-          'src/vendor/three-orbit-controls.js',
+          'src/vendor/three-*.js',
           'src/vendor/threex-*.js'
         ],
         dest: 'public/play/js/vendor.js'
